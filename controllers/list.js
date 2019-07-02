@@ -12,7 +12,7 @@ const listRouter = express.Router()
 listRouter.get('/', (req, res) => {
     listApi.getLists()
     .then((list) => {
-        res.render('',{list})
+        res.render('lists/lists',{list})
     })
     console.log(listApi.getLists)
     })
@@ -32,7 +32,7 @@ listRouter.post('/', (req, res) => {
     // })
 
 listRouter.get('/new', (req, res) => {
-    res.send('lists/newListForm')
+    res.redirect('lists/newListForm')
 })
 
 listRouter.get('/:listId/edit', (req,res) => {
