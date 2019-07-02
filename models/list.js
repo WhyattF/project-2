@@ -11,7 +11,19 @@ const ListSchema = new mongoose.Schema({
  const ListCollection = mongoose.model('List', ListSchema)
 
 function getLists() {
-  return 
+  return ListCollection.find()
+}
+
+function addList(listObject) {
+  return ListCollection.create(listObject)
+}
+
+function getList(listId) {
+  return ListCollection.findById(listId)
+}
+
+function updateList(listId, listObject) {
+  return ListCollection.findByIdAndUpdate(listId, listObject)
 }
 
 /* Step 5
@@ -20,5 +32,8 @@ function getLists() {
  * object
  */
 module.exports = {
-getLists
+  getLists,
+  addList,
+  getList,
+  updateList
 }
