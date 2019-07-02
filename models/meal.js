@@ -18,7 +18,6 @@
  * your data once you stop running your server.
  *
  */
-global.sampleModel = [];
 
 /* Step 2
  *

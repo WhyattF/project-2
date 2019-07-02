@@ -12,7 +12,7 @@ const listRouter = express.Router()
 listRouter.get('/', (req, res) => {
     listApi.getLists()
     .then((list) => {
-        res.render('lists/lists',{list})
+        res.render('lists/lists', {list})
     })
     console.log(listApi.getLists)
     })
@@ -25,20 +25,27 @@ listRouter.post('/', (req, res) => {
     .then(() => {
         res.redirect('/lists')
     })
-     console.log(listApi.addList(req.body))
     })
     // .catch((err) => {
     //     res.send(err)
     // })
 
 listRouter.get('/new', (req, res) => {
-    res.redirect('lists/newListForm')
+    res.render('lists/newListForm')
 })
 
-listRouter.get('/:listId/edit', (req,res) => {
+listRouter.get('/:listId', (req, res) => {
+    listApi.getList(req.params.listId)
+      .then((list) => {
+         res.render('lists/singleList', {list})
+          })
+      })
+
+
+listRouter.get('/:listId/edit', (req, res) => {
     listApi.getList(req.params.listId)
      .then((list) => {
-         res.send('list/editListForm', {list})
+         res.render('lists/editListForm', {list})
      })
 })
 
@@ -49,12 +56,12 @@ listRouter.put('/:listId', (req, res) => {
      })
 })
 
-// listRouter.delete('/:listId', (req, res) => {
-//     listApi.deleteList(req.params.listId)
-//      .then(() => {
-//          res.redirect('/lists')
-//      })
-// })
+listRouter.delete('/:listId', (req, res) => {
+    listApi.deleteList(req.params.listId)
+     .then(() => {
+         res.redirect('/lists')
+     })
+})
 
 // export router
 module.exports = {

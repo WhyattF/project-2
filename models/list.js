@@ -8,7 +8,7 @@ const ListSchema = new mongoose.Schema({
 
 
 // create collection API
- const ListCollection = mongoose.model('List', ListSchema)
+const ListCollection = mongoose.model('List', ListSchema)
 
 function getLists() {
   return ListCollection.find()
@@ -26,14 +26,19 @@ function updateList(listId, listObject) {
   return ListCollection.findByIdAndUpdate(listId, listObject)
 }
 
+function deleteList(listId) {
+  return ListCollection.findByIdAndDelete(listId)
+}
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
  * object
  */
+
 module.exports = {
   getLists,
   addList,
   getList,
-  updateList
+  updateList,
+  deleteList
 }

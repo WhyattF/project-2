@@ -1,0 +1,9 @@
+<a href="/lists">Back to all lists</a>
+
+<h2>{{list.name}}</h2>
+
+<a href="/lists/{{list._id}}/edit">Edit List</a>
+
+<form action="/lists/{{list._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete List">
+</form>
