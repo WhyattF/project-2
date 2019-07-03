@@ -65,7 +65,7 @@ app.set('view engine', 'hbs')
  */
 app.use('/meals', mealRouter)
 app.use('/meals/:mealId/foodItem', foodItemRouter)
-app.use('/meals/:foodItemId/category', categoryRouter)
+app.use('/categories', categoryRouter)
 
 /* Step 5
  *

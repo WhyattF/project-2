@@ -2,7 +2,9 @@
 
 <h2>{{meal.name}}</h2>
 
-<a href="/meals/{{meal._id}}/edit">Edit Meals</a>
+<a href="/meals/{{meal._id}}/edit">Edit Meal Name</a>
+
+<a href="/foodItems/new">Insert Food Item</a>
 
 <form action="/meals/{{meal._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete Meal">

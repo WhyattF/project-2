@@ -22,10 +22,6 @@ function getCategory(categoryId) {
   return CategoryCollection.findById(categoryId)
 }
 
-function updateCategory(categoryId, categoryObject) {
-  return CategoryCollection.findByIdAndUpdate(categoryId, categoryObject)
-}
-
 function deleteCategory(categoryId) {
   return CategoryCollection.findByIdAndDelete(categoryId)
 }
@@ -39,6 +35,5 @@ module.exports = {
   getCategories,
   addCategory,
   getCategory,
-  updateCategory,
   deleteCategory
 }

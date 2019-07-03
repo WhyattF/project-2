@@ -10,7 +10,7 @@ const categoryRouter = express.Router()
 
 // request handlers
 categoryRouter.get('/', (req, res) => {
-    categoryApi.getcategorys()
+    categoryApi.getCategories()
     .then((category) => {
         res.render('categories/categories', {category})
     })
@@ -21,9 +21,9 @@ categoryRouter.get('/', (req, res) => {
     //  })
 
 categoryRouter.post('/', (req, res) => {   
-    categoryApi.addcategory(req.body)
+    categoryApi.addCategory(req.body)
     .then(() => {
-        res.redirect('/categorys')
+        res.redirect('/categories')
     })
     })
     // .catch((err) => {
@@ -31,35 +31,20 @@ categoryRouter.post('/', (req, res) => {
     // })
 
 categoryRouter.get('/new', (req, res) => {
-    res.render('categorys/newcategoryForm')
+    res.render('categories/newcategoryForm')
 })
 
 categoryRouter.get('/:categoryId', (req, res) => {
-    categoryApi.getcategory(req.params.categoryId)
+    categoryApi.getCategory(req.params.categoryId)
       .then((category) => {
-         res.render('categorys/singlecategory', {category})
+         res.render('categories/singlecategory', {category})
           })
       })
 
-
-categoryRouter.get('/:categoryId/edit', (req, res) => {
-    categoryApi.getcategory(req.params.categoryId)
-     .then((category) => {
-         res.render('categorys/editcategoryForm', {category})
-     })
-})
-
-categoryRouter.put('/:categoryId', (req, res) => {
-    categoryApi.updatecategory(req.params.categoryId, req.body)
-     .then(() => {
-         res.redirect('/categorys')
-     })
-})
-
 categoryRouter.delete('/:categoryId', (req, res) => {
-    categoryApi.deletecategory(req.params.categoryId)
+    categoryApi.deleteCategory(req.params.categoryId)
      .then(() => {
-         res.redirect('/categorys')
+         res.redirect('/categories')
      })
 })
 

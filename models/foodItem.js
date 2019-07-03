@@ -31,11 +31,11 @@ const FoodItemCollection = mongoose.model('FoodItem', FoodItemSchema)
  *
  */
 function getFoodItemsByMealId(mealId) {
-    return FoodItemCollection.findById({ mealId: mealId })
+    return FoodItemCollection.find({ mealId: mealId })
 }
 
 function getfoodItemsByFoodId(foodId) {
-    return FoodItemCollection.findById({ foodId: foodId })
+    return FoodItemCollection.findById(foodId)
 }
 
 function addFoodItem(foodItemObject) {
