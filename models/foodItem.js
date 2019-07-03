@@ -9,7 +9,7 @@ const mongoose = require('./connection.js')
 const FoodItemSchema = new mongoose.Schema({
  name: ({
     type: String,
-    listId: mongoose.Types.ObjectId
+    mealId: mongoose.Types.ObjectId
   })
 })
 
