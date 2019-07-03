@@ -1,61 +1,69 @@
-const mongoose = require('./connection.js')
+// import express
+const express = require('express')
 
-/* Step 2
- *
- * TODO: create model schema 
- * NOTE: skip this if you are not using mongoose
- *
- */
-const MealSchema = new mongoose.Schema({
- name: ({
-    type: String,
-    mealId: mongoose.Types.ObjectId
-  })
+// import api files from models
+const mealApi = require('../models/meal.js')
+// const foodItemApi = require('../models/foodItem.js')
+
+// create router
+const mealRouter = express.Router()
+
+// request handlers
+mealRouter.get('/', (req, res) => {
+    mealApi.getMeals()
+    .then((meals) => {
+        res.render('meals/meals', {meals})
+    })
+    console.log(mealApi.getMeals)
+    })
+    // .catch((err) => {
+    //  res.send(err)
+    //  })
+
+mealRouter.post('/', (req, res) => {   
+    mealApi.addMeal(req.body)
+    .then(() => {
+        res.redirect('/meals')
+    })
+    })
+    // .catch((err) => {
+    //     res.send(err)
+    // })
+
+mealRouter.get('/new', (req, res) => {
+    res.render('meals/newMealForm')
 })
 
-/* Step 3
- *
- * TODO: create collection API
- * NOTE: skip this if you are not using mongoose
- *
- */
-const MealCollection = mongoose.model('Meal', MealSchema)
-
-/* Step 4
- *
- * TODO: delete this it's just a sample
- *
- */
-function getMeals() {
-    return MealCollection.find()
-}
-
-function addMeal(mealObject) {
-    return MealCollection.create(mealObject)
-}
-
-function getMeal(mealId) {
-    return MealCollection.findById(mealId)
-}
-
-function updateMeal(mealId, mealObject) {
-    return MealCollection.findByIdAndUpdate(mealId, mealItemObject)
-  }
-  
-  function deleteMeal(mealId) {
-    return MealCollection.findByIdAndDelete(mealId)
-  }
+mealRouter.get('/:mealId', (req, res) => {
+    mealApi.getMeal(req.params.mealId)
+      .then((meal) => {
+         res.render('meals/singleMeal', {meal})
+          })
+      })
 
 
-/* Step 5
- *
- * TODO: export all functions from this file by adding their names as keys to this
- * object
- */
+mealRouter.get('/:mealId/edit', (req, res) => {
+    mealApi.getmeal(req.params.mealId)
+     .then((meal) => {
+         res.render('meals/editMealForm', {meal})
+     })
+})
+
+mealRouter.put('/:mealId', (req, res) => {
+    mealApi.updateMeal(req.params.mealId, req.body)
+     .then(() => {
+         res.redirect('/meals')
+     })
+})
+
+mealRouter.delete('/:mealId', (req, res) => {
+    mealApi.deleteMeal(req.params.mealId)
+     .then(() => {
+         res.redirect('/meals')
+     })
+})
+
+// export router
 module.exports = {
-    getMeals,
-    getMeal,
-    addMeal,
-    updateMeal,
-    deleteMeal
+    mealRouter
 }

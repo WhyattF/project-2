@@ -25,7 +25,7 @@ const foodItemApi = require('../models/foodItem.js')
 const foodItemRouter = express.Router({mergeParams: true})
 
 foodItemRouter.get('/', (req, res) => {
-    req.body.listId = req.params.listId
+    req.body.meald = req.params.listId
 
     foodItemApi.getFoodItems()
     .then((foodItem) => {

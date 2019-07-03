@@ -1,23 +1,4 @@
-/* 
- * Place all functions, classes, and/or DB schemas here for a single 
- * model.
- */
-
-/* Step 1
- *
- * TODO: import mongoose connection
- * NOTE: skip this if you are not using mongoose
- *
- */
-//const mongoose = require('./connection.js')
-
-/* Step 1 alternative
- *
- * TODO: make a global variable to act as an in memory database. 
- * NOTE: doing this WILL NOT persist your data and you will loose
- * your data once you stop running your server.
- *
- */
+const mongoose = require('./connection.js')
 
 /* Step 2
  *
@@ -25,9 +6,12 @@
  * NOTE: skip this if you are not using mongoose
  *
  */
-//const SampleModelSchema = new mongoose.Schema({
-//  name: String
-//})
+const MealSchema = new mongoose.Schema({
+ name: ({
+    type: String,
+    mealId: mongoose.Types.ObjectId
+  })
+})
 
 /* Step 3
  *
@@ -35,16 +19,33 @@
  * NOTE: skip this if you are not using mongoose
  *
  */
-//const SampleCollection = mongoose.model('Sample', SampleModelSchema)
+const MealCollection = mongoose.model('Meal', MealSchema)
 
 /* Step 4
  *
  * TODO: delete this it's just a sample
  *
  */
-function getHelloWorldString() {
-  return 'hello world'
+function getMeals() {
+    return MealCollection.find()
 }
+
+function addMeal(mealObject) {
+    return MealCollection.create(mealObject)
+}
+
+function getMeal(mealId) {
+    return MealCollection.findById(mealId)
+}
+
+function updateMeal(mealId, mealObject) {
+    return MealCollection.findByIdAndUpdate(mealId, mealItemObject)
+  }
+  
+  function deleteMeal(mealId) {
+    return MealCollection.findByIdAndDelete(mealId)
+  }
+
 
 /* Step 5
  *
@@ -52,5 +53,9 @@ function getHelloWorldString() {
  * object
  */
 module.exports = {
-  getHelloWorldString
+    getMeals,
+    getMeal,
+    addMeal,
+    updateMeal,
+    deleteMeal
 }

@@ -59,5 +59,4 @@ module.exports = {
     createFoodItem,
     updateFoodItem,
     deleteFoodItem
-
 }
