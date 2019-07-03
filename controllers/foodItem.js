@@ -26,7 +26,6 @@ const foodItemRouter = express.Router({mergeParams: true})
 
 foodItemRouter.get('/', (req, res) => {
     req.body.foodItemId = req.params.foodItemId
-
     foodItemApi.getFoodItems()
     .then((foodItem) => {
         res.render('foodItems/foodItems', {foodItem})
@@ -34,15 +33,16 @@ foodItemRouter.get('/', (req, res) => {
 })
 
 foodItemRouter.post('/', (req, res) => {
-    req.body.foodItemId = req.params.foodItemId
-    foodItemApi.addFood(req.body)
+    const mealId = req.params.mealId
+    foodItemApi.addFoodItem(mealId, req.body)
       .then(() => {
-        res.redirect('/foodItems')
+        res.redirect(`/meals/${mealId}/foodItems`)
       })
   })
 
   foodItemRouter.get('/new', (req, res) => {
-    res.send('foodItems/newFoodItemForm')
+    const mealId = req.params.mealId
+    res.render('foodItems/newFoodItemForm', {mealId})
 })
 
 foodItemRouter.get('/:foodItemId/edit', (req,res) => {

@@ -64,7 +64,7 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/meals', mealRouter)
-app.use('/meals/:mealId/foodItem', foodItemRouter)
+app.use('/meals/:mealId/foodItems', foodItemRouter)
 app.use('/categories', categoryRouter)
 
 /* Step 5

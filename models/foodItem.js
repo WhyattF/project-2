@@ -38,7 +38,8 @@ function getfoodItemsByFoodId(foodId) {
     return FoodItemCollection.findById(foodId)
 }
 
-function addFoodItem(foodItemObject) {
+function addFoodItem(mealId, foodItemObject) {
+    foodItemObject.mealId = mealId
     return FoodItemCollection.create(foodItemObject)
 }
 
