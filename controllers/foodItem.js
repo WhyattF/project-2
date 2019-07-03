@@ -36,7 +36,7 @@ foodItemRouter.post('/', (req, res) => {
     const mealId = req.params.mealId
     foodItemApi.addFoodItem(mealId, req.body)
       .then(() => {
-        res.redirect(`/meals/${mealId}/foodItems`)
+        res.redirect(`/meals/${mealId}`)
       })
   })
 
@@ -50,6 +50,13 @@ foodItemRouter.get('/:foodItemId/edit', (req,res) => {
      .then((foodItem) => {
          res.send('foodItem/editFoodItemForm', {foodItem})
      })
+})
+
+foodItemRouter.get('/meals/:mealId/foodItems', (req, res) => {
+    foodItemApi.viewFoodItemsByMealId(req.params.mealId)
+    .then((mealId) => {
+        res.redirect('foodItem/newFoodItemForm', {mealId})
+    })
 })
 
 foodItemRouter.put('/:foodItemId', (req, res) => {

@@ -1,10 +1,20 @@
+<button>
 <a href="/meals">Back to all meals</a>
+</button>
 
 <h2>{{meal.name}}</h2>
 
+<button>
 <a href="/meals/{{meal._id}}/edit">Edit Meal Name</a>
+</button>
 
+<button>
 <a href="/meals/{{meal.id}}/foodItems/new">Insert Food Item</a>
+</button>
+
+<button>
+<a href="/foodItems/{{meal.id}}">View Food Items</a>
+</button>
 
 <form action="/meals/{{meal._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete Meal">

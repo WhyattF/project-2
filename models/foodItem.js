@@ -38,6 +38,10 @@ function getfoodItemsByFoodId(foodId) {
     return FoodItemCollection.findById(foodId)
 }
 
+function viewFoodItemsByMealId(mealId) {
+    return FoodItemCollection.find(mealId)
+}
+
 function addFoodItem(mealId, foodItemObject) {
     foodItemObject.mealId = mealId
     return FoodItemCollection.create(foodItemObject)
@@ -60,6 +64,7 @@ function deleteFoodItem(foodId) {
 module.exports = {
     getFoodItemsByMealId,
     getfoodItemsByFoodId,
+    viewFoodItemsByMealId,
     addFoodItem,
     updateFoodItem,
     deleteFoodItem
