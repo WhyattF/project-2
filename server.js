@@ -18,7 +18,8 @@ const methodOverride = require('method-override')
  *
  */
 const { foodItemRouter } = require('./controllers/foodItem.js')
-const { listRouter } = require('./controllers/category.js/index.js')
+const { mealRouter } = require('./controllers/meal.js')
+const { categoryRouter } = require('./controllers/category.js')
 
 
 /* Step 3
@@ -62,8 +63,9 @@ app.set('view engine', 'hbs')
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('/lists', listRouter)
-app.use('/lists/:listId/foodItem', foodItemRouter)
+app.use('/meals', mealRouter)
+app.use('/meals/:mealId/foodItem', foodItemRouter)
+app.use('/meals/:foodItemId/category', categoryRouter)
 
 /* Step 5
  *

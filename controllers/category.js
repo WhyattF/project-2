@@ -12,7 +12,7 @@ const categoryRouter = express.Router()
 categoryRouter.get('/', (req, res) => {
     categoryApi.getcategorys()
     .then((category) => {
-        res.render('categorys/categorys', {category})
+        res.render('categories/categories', {category})
     })
     console.log(categoryApi.getcategorys)
     })

@@ -7,10 +7,14 @@ const mongoose = require('./connection.js')
  *
  */
 const FoodItemSchema = new mongoose.Schema({
- name: ({
-    type: String,
-    mealId: mongoose.Types.ObjectId
-  })
+    name: ({
+        type: String,
+        mealId: mongoose.Types.ObjectId
+    }),
+    category: ({
+        type: String,
+        categoryId: mongoose.Types.ObjectId
+    })
 })
 
 /* Step 3
@@ -27,24 +31,24 @@ const FoodItemCollection = mongoose.model('FoodItem', FoodItemSchema)
  *
  */
 function getFoodItemsByMealId(mealId) {
-  return FoodItemCollection.findById({mealId: mealId})
+    return FoodItemCollection.findById({ mealId: mealId })
 }
 
 function getfoodItemsByFoodId(foodId) {
-    return FoodItemCollection.findById({foodId: foodId})
+    return FoodItemCollection.findById({ foodId: foodId })
 }
 
 function addFoodItem(foodItemObject) {
-  return FoodItemCollection.create(foodItemObject)
+    return FoodItemCollection.create(foodItemObject)
 }
 
 function updateFoodItem(foodId, foodItemObject) {
     return ListCollection.findByIdAndUpdate(foodId, foodItemObject)
-  }
-  
-  function deleteFoodItem(foodId) {
+}
+
+function deleteFoodItem(foodId) {
     return ListCollection.findByIdAndDelete(foodId)
-  }
+}
 
 
 /* Step 5
@@ -56,7 +60,6 @@ module.exports = {
     getFoodItemsByMealId,
     getfoodItemsByFoodId,
     addFoodItem,
-    createFoodItem,
     updateFoodItem,
     deleteFoodItem
 }
