@@ -18,7 +18,7 @@ const methodOverride = require('method-override')
  *
  */
 const { foodItemRouter } = require('./controllers/foodItem.js')
-const { listRouter } = require('./controllers/list.js')
+const { listRouter } = require('./controllers/category.js/index.js')
 
 
 /* Step 3
