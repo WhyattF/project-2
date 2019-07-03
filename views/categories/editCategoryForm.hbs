@@ -1,12 +1,12 @@
-<form method="POST" action="/lists/{{list._id}}?_method=PUT">
+<form method="POST" action="/categories/{{category._id}}?_method=PUT">
 
-<label for="name">List Name</label>
+<label for="name">Category Name</label>
   <input 
     type="text" 
     placeholder="name" 
     name="name" 
-    value="{{list.name}}" 
+    value="{{category.name}}" 
     />
 
-  <input type="submit" value="Update List" />
+  <input type="submit" value="Update Category" />
     </form>
