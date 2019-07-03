@@ -25,7 +25,7 @@ const foodItemApi = require('../models/foodItem.js')
 const foodItemRouter = express.Router({mergeParams: true})
 
 foodItemRouter.get('/', (req, res) => {
-    req.body.meald = req.params.listId
+    req.body.foodItemId = req.params.foodItemId
 
     foodItemApi.getFoodItems()
     .then((foodItem) => {
@@ -34,12 +34,37 @@ foodItemRouter.get('/', (req, res) => {
 })
 
 foodItemRouter.post('/', (req, res) => {
-    req.body.listId = req.params.listId
+    req.body.foodItemId = req.params.foodItemId
     foodItemApi.addFood(req.body)
       .then(() => {
         res.redirect('/foodItems')
       })
   })
+
+  foodItemRouter.get('/new', (req, res) => {
+    res.send('foodItems/newFoodItemForm')
+})
+
+foodItemRouter.get('/:foodItemId/edit', (req,res) => {
+    foodItemApi.getfoodItemById(req.params.foodItemId)
+     .then((foodItem) => {
+         res.send('foodItem/editFoodItemForm', {foodItem})
+     })
+})
+
+foodItemRouter.put('/:foodItemId', (req, res) => {
+    foodItemApi.updatefoodItem(req.params.foodItemId, req.body)
+     .then(() => {
+         res.redirect('/foodItems')
+     })
+})
+
+foodItemRouter.delete('/:foodItemId', (req, res) => {
+    foodItemApi.deletefoodItem(req.params.foodItemId)
+     .then(() => {
+         res.redirect('/foodItems')
+     })
+})
 
 /* Step 6
  *
