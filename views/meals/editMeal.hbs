@@ -1,0 +1,12 @@
+<form method="POST" action="/meals/{{meal._id}}?_method=PUT">
+
+<label for="name">Meal Name</label>
+  <input 
+    type="text" 
+    placeholder="name" 
+    name="name" 
+    value="{{meal.name}}" 
+    />
+
+  <input type="submit" value="Update Meal" />
+    </form>
