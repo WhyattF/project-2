@@ -39,7 +39,7 @@ function getMeal(mealId) {
 }
 
 function updateMeal(mealId, mealObject) {
-    return MealCollection.findByIdAndUpdate(mealId, mealItemObject)
+    return MealCollection.findByIdAndUpdate(mealId, mealObject)
   }
   
   function deleteMeal(mealId) {

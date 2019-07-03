@@ -11,8 +11,8 @@ const mealRouter = express.Router()
 // request handlers
 mealRouter.get('/', (req, res) => {
     mealApi.getMeals()
-    .then((meals) => {
-        res.render('meals/meals', {meals})
+    .then((meal) => {
+        res.render('meals/meals', {meal})
     })
     console.log(mealApi.getMeals)
     })
@@ -43,7 +43,7 @@ mealRouter.get('/:mealId', (req, res) => {
 
 
 mealRouter.get('/:mealId/edit', (req, res) => {
-    mealApi.getmeal(req.params.mealId)
+    mealApi.getMeal(req.params.mealId)
      .then((meal) => {
          res.render('meals/editMealForm', {meal})
      })
