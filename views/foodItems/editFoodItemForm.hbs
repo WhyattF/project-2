@@ -1,0 +1,21 @@
+<form method="POST" action="/foodItems/{{category._id}}?_method=PUT">
+
+<label for="name">Food Items</label>
+  <input 
+    type="text" 
+    placeholder="name" 
+    name="name" 
+    value="{{foodItem.name}}" 
+    />
+
+<label for="category">Category</label>
+  <input 
+    type="number" 
+    placeholder="category"
+    name="category"
+    id="rating"
+    value="{{foodItem.category}}" 
+    />
+
+  <input type="submit" value="Update Category" />
+    </form>
