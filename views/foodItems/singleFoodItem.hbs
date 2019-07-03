@@ -1,0 +1,9 @@
+<a href="/foodItems">Back to all food items</a>
+
+<h2>{{foodItems.name}}</h2>
+
+<a href="/foodItems/{{foodItem._id}}/edit">Edit Food items</a>
+
+<form action="/foodItem/{{foodItem._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete Food Item">
+</form>
