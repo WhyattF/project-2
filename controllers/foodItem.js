@@ -24,14 +24,14 @@ const foodItemApi = require('../models/foodItem.js')
  */
 const foodItemRouter = express.Router({mergeParams: true})
 
-// foodItemRouter.get('/', (req, res) => {
-//     const mealId = req.params.mealId
-//     req.body.mealId = req.params.mealId
-//     foodItemApi.getFoodItems(mealId, req.body)
-//     .then((foodItem) => {
-//         res.render('foodItems/foodItems', {foodItem})
-//     })
-// })
+foodItemRouter.get('/:foodItemId', (req, res) => {
+    console.log(req.params)
+    const foodId = req.params.foodItemId
+    foodItemApi.getfoodItemsByFoodId(foodId)
+    .then((foodItem) => {
+        res.render('foodItems/singleFoodItem', {foodItem})
+    })
+})
 
 foodItemRouter.post('/', (req, res) => {
     const mealId = req.params.mealId
@@ -42,7 +42,8 @@ foodItemRouter.post('/', (req, res) => {
   })
 
   foodItemRouter.get('/new', (req, res) => {
-    const mealId = req.params.mealId
+      const mealId = req.params.mealId
+      console.log(mealId)
     res.render('foodItems/newFoodItemForm', {mealId})
 })
 
@@ -53,10 +54,11 @@ foodItemRouter.get('/:foodItemId/edit', (req,res) => {
      })
 })
 
-foodItemRouter.get('/meals/:mealId/foodItems', (req, res) => {
+foodItemRouter.get('/', (req, res) => {
     foodItemApi.viewFoodItemsByMealId(req.params.mealId)
-    .then((mealId) => {
-        res.render(`/meals/${mealId}/foodItems/viewFoodItems`, {mealId})
+    .then((foodItems) => {
+        console.log(foodItems)
+        res.render('foodItems/viewFoodItems', {foodItems, mealId: req.params.mealId})
     })
 })
 

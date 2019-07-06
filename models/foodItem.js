@@ -7,14 +7,15 @@ const mongoose = require('./connection.js')
  *
  */
 const FoodItemSchema = new mongoose.Schema({
-    name: ({
+    name: {
         type: String,
-        mealId: mongoose.Types.ObjectId
-    }),
-    category: ({
-        type: String,
-        categoryId: mongoose.Types.ObjectId
-    })
+    },
+    mealId: {
+        type: mongoose.Types.ObjectId
+    },
+    categoryId: {
+        type: mongoose.Types.ObjectId
+    }
 })
 
 /* Step 3
@@ -43,6 +44,7 @@ function viewFoodItemsByMealId(mealId) {
 }
 
 function addFoodItem(mealId, foodItemObject) {
+    console.log(mealId)
     foodItemObject.mealId = mealId
     return FoodItemCollection.create(foodItemObject)
 }

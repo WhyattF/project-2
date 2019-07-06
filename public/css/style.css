@@ -15,7 +15,13 @@ h2 {
     text-align: center;
     margin: auto;
 }
-
-.image {
-    background-image: url(http:meal-planner.jpg);
+.bg {
+    background-image: url('/public/meal-planner.jpg'); 
+    background-position: center;
+    height: 400px; 
+    background-size: cover;
 }
+
+/* .image {
+    background-image: url('public/img/meal-planner.jpg');
+} */
