@@ -24,13 +24,14 @@ const foodItemApi = require('../models/foodItem.js')
  */
 const foodItemRouter = express.Router({mergeParams: true})
 
-foodItemRouter.get('/', (req, res) => {
-    req.body.foodItemId = req.params.foodItemId
-    foodItemApi.getFoodItems()
-    .then((foodItem) => {
-        res.render('foodItems/foodItems', {foodItem})
-    })
-})
+// foodItemRouter.get('/', (req, res) => {
+//     const mealId = req.params.mealId
+//     req.body.mealId = req.params.mealId
+//     foodItemApi.getFoodItems(mealId, req.body)
+//     .then((foodItem) => {
+//         res.render('foodItems/foodItems', {foodItem})
+//     })
+// })
 
 foodItemRouter.post('/', (req, res) => {
     const mealId = req.params.mealId
@@ -55,7 +56,7 @@ foodItemRouter.get('/:foodItemId/edit', (req,res) => {
 foodItemRouter.get('/meals/:mealId/foodItems', (req, res) => {
     foodItemApi.viewFoodItemsByMealId(req.params.mealId)
     .then((mealId) => {
-        res.redirect('foodItem/newFoodItemForm', {mealId})
+        res.render(`/meals/${mealId}/foodItems/viewFoodItems`, {mealId})
     })
 })
 

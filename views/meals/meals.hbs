@@ -1,9 +1,13 @@
 <h2>All Meals</h2>
 
-<a href="/meals/new">Add New Meal</a>
+
+<button class="new-meal">
+<a href="/meals/new">+</a>
+</button>
+
 
 {{#each meal}}
-<div>
+<div class="meals">
 <a href="/meals/{{_id}}">{{name}}</a>
 </div>
 {{/each}}

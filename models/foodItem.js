@@ -39,7 +39,7 @@ function getfoodItemsByFoodId(foodId) {
 }
 
 function viewFoodItemsByMealId(mealId) {
-    return FoodItemCollection.find(mealId)
+    return FoodItemCollection.find({mealId: mealId})
 }
 
 function addFoodItem(mealId, foodItemObject) {

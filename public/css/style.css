@@ -1,0 +1,21 @@
+h2 {
+    text-align: center;
+}
+
+.new-meal {
+    display: block;
+    margin: auto;
+}
+
+.meals {
+    text-align: center;
+}
+
+.meal-name {
+    text-align: center;
+    margin: auto;
+}
+
+.image {
+    background-image: url(http:meal-planner.jpg);
+}

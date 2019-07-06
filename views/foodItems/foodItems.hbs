@@ -2,8 +2,8 @@
 
 <a href="/foodItems/new">Add Food Item</a>
 
-{{#each foodItem}}
+{{#each foodItems}}
 <div>
-<a href="/foodItems/{{_id}}">{{name}}</a>
+<a href="/meals/{{meal.id}}/foodItems">{{name}}</a>
 </div>
 {{/each}}

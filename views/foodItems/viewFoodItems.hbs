@@ -1,0 +1,15 @@
+<h2>All Food</h2>
+
+<button>
+<a href="/meals/{{meal.id}}">Back to meal</a>
+</button>
+
+<button>
+<a href="/meals/{{meal.id}}/foodItems/new">Insert Food Item</a>
+</button>
+
+{{#each foodItem}}
+<div>
+<a href="/meals/{{meal.id}}/foodItems">{{name}}</a>
+</div>
+{{/each}}
