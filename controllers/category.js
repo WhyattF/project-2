@@ -31,15 +31,28 @@ categoryRouter.post('/', (req, res) => {
     // })
 
 categoryRouter.get('/new', (req, res) => {
-    res.render('categories/newcategoryForm')
+    res.render('categories/newCategoryForm')
 })
 
 categoryRouter.get('/:categoryId', (req, res) => {
     categoryApi.getCategory(req.params.categoryId)
       .then((category) => {
-         res.render('categories/singlecategory', {category})
+         res.render('categories/singleCategory', {category})
           })
       })
+categoryRouter.get('/:categoryId/edit', (req, res) => {
+    categoryApi.getCategory(req.params.categoryId)
+    .then((category) => {
+        res.render('categories/editCategoryForm', {category})
+    })
+})
+
+categoryRouter.put('/:categoryId', (req, res) => {
+    categoryApi.updateCategory(req.params.categoryId, req.body)
+    .then(() => {
+        res.redirect('/categories')
+    })
+})
 
 categoryRouter.delete('/:categoryId', (req, res) => {
     categoryApi.deleteCategory(req.params.categoryId)

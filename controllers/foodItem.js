@@ -48,7 +48,7 @@ foodItemRouter.post('/', (req, res) => {
 })
 
 foodItemRouter.get('/:foodItemId/edit', (req,res) => {
-    foodItemApi.getfoodItemById(req.params.foodItemId)
+    foodItemApi.getFoodItem(req.params.foodItemId)
      .then((foodItem) => {
          res.send('foodItem/editFoodItemForm', {foodItem})
      })

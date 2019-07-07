@@ -1,0 +1,12 @@
+<form method="POST" action="/categories/{{category._id}}?_method=PUT">
+
+    <label for="name">Category Name</label>
+    <!--
+    Template for creating input form for a string object key called stringMember
+    NOTE: for numeric input fields use `type="number"`
+  -->
+    <input type="text" value="{{meal.name}}" name="name" placeholder="name" />
+
+
+    <input type="submit" value="Update Category" />
+</form>
