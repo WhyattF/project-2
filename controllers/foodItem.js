@@ -43,7 +43,6 @@ foodItemRouter.post('/', (req, res) => {
 
   foodItemRouter.get('/new', (req, res) => {
       const mealId = req.params.mealId
-      console.log(mealId)
     res.render('foodItems/newFoodItemForm', {mealId})
 })
 
