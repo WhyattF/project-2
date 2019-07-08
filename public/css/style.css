@@ -15,9 +15,14 @@ h2 {
     text-align: center;
     margin: auto;
 }
-/* .bg {
-    background-image: url('/public/meal-planner.jpg'); 
+body {
+    background-color: coral; 
     background-position: center;
     height: 400px; 
     background-size: cover;
-} */
+}
+
+.aqua {
+    background-color: aquamarine;
+}
+

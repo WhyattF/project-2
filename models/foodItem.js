@@ -35,7 +35,7 @@ function getFoodItemsByMealId(mealId) {
     return FoodItemCollection.find({ mealId: mealId })
 }
 
-function getfoodItemsByFoodId(foodId) {
+function getFoodItemsByFoodId(foodId) {
     return FoodItemCollection.findById(foodId)
 }
 
@@ -65,7 +65,7 @@ function deleteFoodItem(foodId) {
  */
 module.exports = {
     getFoodItemsByMealId,
-    getfoodItemsByFoodId,
+    getFoodItemsByFoodId,
     viewFoodItemsByMealId,
     addFoodItem,
     updateFoodItem,
