@@ -24,19 +24,24 @@ const foodItemApi = require('../models/foodItem.js')
  */
 const foodItemRouter = express.Router({mergeParams: true})
 
+foodItemRouter.get('/new', (req, res) => {
+    const mealId = req.params.mealId
+  res.render('foodItems/newFoodItemForm', {mealId})
+})
+
 foodItemRouter.get('/:foodItemId', (req, res) => {
     console.log(req.params)
     const foodId = req.params.foodItemId
     foodItemApi.getFoodItemsByFoodId(foodId)
     .then((foodItem) => {
-        res.render('foodItems/singleFoodItem', {foodItem})
+        console.log(foodId)
+        res.render('foodItems/singleFoodItem', {foodItem, mealId: req.params.mealId})
     })
+    .catch((err) => {
+        res.send(err)
+      })
 })
 
-foodItemRouter.get('/new', (req, res) => {
-    const mealId = req.params.mealId
-  res.render('foodItems/newFoodItemForm', {mealId})
-})
 
 foodItemRouter.post('/', (req, res) => {
     const mealId = req.params.mealId
@@ -70,10 +75,10 @@ foodItemRouter.put('/:foodItemId', (req, res) => {
 })
 
 foodItemRouter.delete('/:foodItemId', (req, res) => {
-    const mealId = req.params.mealId
     foodItemApi.deleteFoodItem(req.params.foodItemId)
-     .then(() => {
-         res.redirect('/foodItems/viewFoodItems', {mealId})
+    .then(() => {
+        const mealId = req.params.mealId
+         res.redirect(`/meals/${mealId}/foodItems`)
      })
 })
 

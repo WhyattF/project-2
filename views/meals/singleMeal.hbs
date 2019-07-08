@@ -1,21 +1,21 @@
 <button>
-<a href="/meals">Back to all meals</a>
+    <a href="/meals">Back to all meals</a>
 </button>
 
 <div class="meal-name">
-<h2>{{meal.name}}</h2>
+    <h2>{{meal.name}}</h2>
 </div>
 
 <button>
-<a href="/meals/{{meal._id}}/edit">Edit Meal Name</a>
+    <a href="/meals/{{meal._id}}/edit">Edit Meal Name</a>
 </button>
 
-<button>
+
 <a href="/meals/{{meal.id}}/foodItems/new">Insert Food Item</a>
-</button>
+
 
 <button>
-<a href="/meals/{{meal.id}}/foodItems">View Food Items</a>
+    <a href="/meals/{{meal.id}}/foodItems">View Food Items</a>
 </button>
 
 <form action="/meals/{{meal._id}}?_method=DELETE" method="post">

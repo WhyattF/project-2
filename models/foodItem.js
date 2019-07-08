@@ -35,8 +35,8 @@ function getFoodItemsByMealId(mealId) {
     return FoodItemCollection.find({ mealId: mealId })
 }
 
-function getFoodItemsByFoodId(foodId) {
-    return FoodItemCollection.findById(foodId)
+function getFoodItemsByFoodId(mealId, foodId) {
+    return FoodItemCollection.findById(mealId, foodId)
 }
 
 function viewFoodItemsByMealId(mealId) {
@@ -50,11 +50,11 @@ function addFoodItem(mealId, foodItemObject) {
 }
 
 function updateFoodItem(foodId, foodItemObject) {
-    return ListCollection.findByIdAndUpdate(foodId, foodItemObject)
+    return FoodItemCollection.findByIdAndUpdate(foodId, foodItemObject)
 }
 
 function deleteFoodItem(foodId) {
-    return ListCollection.findByIdAndDelete(foodId)
+    return FoodItemCollection.findByIdAndDelete(foodId)
 }
 
 
