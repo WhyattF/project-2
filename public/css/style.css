@@ -16,13 +16,28 @@ h2 {
     margin: auto;
 }
 body {
-    background-color: coral; 
-    background-position: center;
-    height: 400px; 
-    background-size: cover;
+    background: linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
+    linear-gradient(45deg, #ECEDDC 25%, transparent 25%);
+    background-size: 200px 200px;
+    background-color: rgb(155, 128, 42);
 }
 
 .aqua {
-    background-color: aquamarine;
+    text-align: center;
 }
 
+div.cat {
+    text-align: center;
+}
+
+button.cat-edit {
+position: relative; left: 80px;
+}
+
+.view-food {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}

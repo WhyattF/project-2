@@ -1,11 +1,11 @@
 <button>
-<a href="/categories">Back to all categories</a>
+    <a href="/categories">Back to all categories</a>
 </button>
 
 <h2>{{category.name}}</h2>
 
 <button>
-    <a href="/categories/{{category._id}}/edit">Edit Category Name</a>
+    <a class="cat-edit" href="/categories/{{category._id}}/edit">Edit Category Name</a>
 </button>
 
 <form action="/categories/{{category._id}}?_method=DELETE" method="post">
