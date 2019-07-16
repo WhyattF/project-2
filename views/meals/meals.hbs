@@ -1,16 +1,20 @@
-<div class="bg">
-    <h2>All Meals</h2>
+<h1 class="display-4">What Type of Meal Are You Craving?</h1>
 
-{{!-- <div class="image"></div> --}}
+<div class="jumbotron">
+    <h1 class="display-6">Meal Collection</h1>
+    <p class="lead">This is where your individual meals will be stored for easy access.</p>
+    <hr class="my-4">
+    <p>Input the type of meal you would like to create (i.e. Vegan, Keto, etc).</p>
+    <button class="new-meal">
+        <a href="/meals/new">Add New Meals</a>
+    </button>
+</div>
 
-<button class="new-meal">
-<a href="/meals/new">Add New Meals</a>
-</button>
 
 
 {{#each meal}}
 <div class="meals">
-<a href="/meals/{{_id}}">{{name}}</a>
+    <a href="/meals/{{_id}}">{{name}}</a>
 </div>
 {{/each}}
 </div>

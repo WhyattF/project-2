@@ -1,11 +1,18 @@
-<h2>All Food</h2>
+<h1 class="display-4">What Foods Are You Craving?</h1>
 
 <button>
 <a href="/meals/{{mealId}}">Back to meal</a>
 </button>
 
+<div class="jumbotron">
+    <h1 class="display-6">Food Collection</h1>
+    <p class="lead">This is where your individual food items will be stored for easy access.</p>
+</div>
+
+
+
 {{#each foodItems}}
-<div>
+<div class="meals">
 <a href="/meals/{{mealId}}/foodItems/{{_id}}">{{name}}</a>
 </div>
 {{/each}}

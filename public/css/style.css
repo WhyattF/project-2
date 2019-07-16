@@ -1,5 +1,21 @@
+h1 {
+    text-align: center;    
+}
+
 h2 {
     text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.container-fluid {
+    margin: auto;
+}
+
+img {
+    object-fit: scale-down;
 }
 
 .new-meal {
@@ -9,6 +25,7 @@ h2 {
 
 .meals {
     text-align: center;
+    font-size: 2em;
 }
 
 .meal-name {
@@ -21,7 +38,7 @@ body {
     linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
     linear-gradient(45deg, #ECEDDC 25%, transparent 25%);
     background-size: 200px 200px;
-    background-color: rgb(155, 128, 42);
+    background-color: rgb(27, 192, 192);
 }
 
 .aqua {
@@ -38,6 +55,4 @@ position: relative; left: 80px;
 
 .view-food {
     display: flex;
-    flex-direction: row;
-    margin: auto;
 }
